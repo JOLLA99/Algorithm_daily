@@ -29,7 +29,7 @@ def top():
     else:
         print(stack[-1])
 
-# n번 반복 시에 맞는 값일 경우에 해당 함수를 호출한다
+ # n번 반복 시에 맞는 값일 경우에 해당 함수를 호출한다
 for i in range(n):
     com = input().split()
     if (com[0]=='push'):
