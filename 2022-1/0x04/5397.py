@@ -1,4 +1,22 @@
-from sys import stdin 
+import sys
+input = sys.stdin.readline
 
-num = int(input()) #테스트 케이스의 개수
-s = stdin.readline().strip()
+n = int(input())
+
+for _ in range(n):
+    s = list(input().strip())
+    left, right=[]
+    for i in s:
+        if i == '<':
+            if left:
+                right.append(left.pop())
+        elif i == '>':
+            if right:
+                left.append(right.pop())
+        elif i =='-':
+            if left:
+                left.pop()
+        else:
+            left.append(i)
+    left.extend(reversed(right))
+    print(''.join(left))
