@@ -2,7 +2,8 @@ n = int(input())
 
 tL = list(map(int, input().split()))
 aL = [0 for _ in range(n)]
-stack=[]
+stack= []
+# 그렇다..
 
 for i in range(n+1, -1, -1):
     if len(stack) == 0:
