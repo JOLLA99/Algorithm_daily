@@ -1,21 +1,25 @@
+import sys
+
 n = int(input())
+towerList = list(map(int, input().split()))
+stack = []
 
-tL = list(map(int, input().split()))
-aL = [0 for _ in range(n)]
-stack= []
-# 그렇다..
-
-for i in range(n+1, -1, -1):
-    if len(stack) == 0:
-        stack.append([i, tL[i]])
-    else:
-        while tL[i]>stack[len(stack)-1][1]:
-            tower = stack.pop()
-            aL.append[tower[0]] = i+1
-            if len(stack)==0:
+for i in range(n):
+    h = towerList[i]
+    if stack:
+        while stack:
+            if stack[-1][0]<h:
+                stack.pop()
+                if not stack:
+                    print(0, end ='')
+            elif stack[-1][0]>h:
+                print(stack[-1][1]+1, end ='')
                 break
-        
-        stack.append([i, tL[i]])
-
-for num in aL:
-    print(num, end=" ")
+            else:
+                print(stack[-1][1]+1, end = '')
+                stack.pop()
+                break
+        stack.append([h, i])
+    else:
+        print(0, end = '')
+        stack.append([h, i])
