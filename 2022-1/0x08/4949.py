@@ -7,19 +7,20 @@ while True:
         break
     
     stack = []
+    flag = True
 
     for i in range(len(s)):
-        if s[i]== "(" or s[i] == "{":
+        if s[i]== '(' or s[i] == '[':
             stack.append(s[i])
-        elif stack and (s[i]== ")" or s[i] == "}"): #stack은 있지만 닫힌 괄호 나오는 경우
-            if s[i] == ")" and stack[-1] == "(":
+        elif stack and (s[i]== ')' or s[i] == ']'): #stack은 있지만 닫힌 괄호 나오는 경우
+            if s[i] == ')' and stack[-1] == '(':
                 stack.pop()
-            elif s[i] == "}" and stack[-1] == "{":
+            elif s[i] == ']' and stack[-1] == '[':
                 stack.pop()
             else:
                 flag= False
         
-        elif not stack and (s[i]== ")" or s[i] == "}"):
+        elif not stack and (s[i]== ')' or s[i] == ']'):
             flag = False
 
     if flag and not stack:
