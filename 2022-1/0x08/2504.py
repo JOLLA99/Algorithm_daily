@@ -16,7 +16,7 @@ for i in range(len(s)):
         if not stack or stack[-1]=='[':
             result = 0
             break
-        if s[-1] == '(':
+        if s[i-1] == '(':
             result += temp
         stack.pop()
         temp //=2
@@ -25,7 +25,7 @@ for i in range(len(s)):
         if not stack or stack[-1] == '(':
             result = 0
             break
-        if s[-1] == '[':
+        if s[i-1] == '[':
             result += temp
         
         stack.pop()
